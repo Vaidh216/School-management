@@ -18,27 +18,6 @@ using namespace std;
 //**************CLASS TO DRAW LINES**********************
 //*******************************************************
 
-class DRAW
-{
-	public :
-		void LINE_HOR(int, int, int, char);
-		void LINE_VER(int, int, int, char);
-};
-void DRAW :: LINE_HOR(int column1,int column2, int row, char c)
-{
-	for(column1; column1<=column2;column1++)
-	{
-		cout<<c;
-	}
-}
-void DRAW :: LINE_VER(int row1, int row2, int column, char c)
-{
-	for(row1; row1<=row2;row1++)
-	{
-		cout<<c;
-	}
-}
-
 
 //*****************************************************************
 //*********CLASS TO MANAGE FEE COLLECTION AND GENERATION***********
@@ -241,11 +220,11 @@ void add()
 	{
 		s.enter();
 		fin.write((char *)&s,sizeof(s));
-		cout<<"\n\t Do U want to enter more records ? ";
+		cout<<"\n\t Do U want to enter more records ? \n";
 		cin>>chh;
 	}while(chh=='y'||chh=='Y');
 	cout<<"\n Data has been added on the file";
-	cout<<"\n\t\7 Press any key to continue..........";
+	cout<<"\n\t\7 Press any key to continue..........\n";
 	getch();
 	fin.close();
 }
@@ -258,7 +237,7 @@ void del()
 	fstream fin("student.dat",ios::in|ios::binary);
 	fstream fout("temp.dat",ios::out|ios::binary);
 	int r;
-	cout<<"\n Enter the Admno of the Student whose record is to be deleted : ";
+	cout<<"\n Enter the Admno of the Student whose record is to be deleted : \n";
 	cin>>r;
 	int flag=0;
 	while(fin.read((char *)&s,sizeof(s)))
@@ -271,10 +250,10 @@ void del()
 			flag=1;
 	}
 	if(flag==1)
-	cout<<"\n\t Data has been Deleted";
+	cout<<"\n\t Data has been Deleted\n";
 	else
-		cout<<"\n\t No such record..............";
-		cout<<"\n\t\7 Press ay key to continue........";
+		cout<<"\n\t No such record..............\n";
+		cout<<"\n\t\7 Press ay key to continue........\n";
 	getch();
 	fin.close();
 	fout.close();
@@ -289,7 +268,7 @@ void modify()
 	// clrscr();
 	fstream fin("student.dat",ios::in|ios::out|ios::binary);
 	int t;
-	cout<<"\n Enter the Admno of the student whose record is to be modified ";
+	cout<<"\n Enter the Admno of the student whose record is to be modified \n";
 	cin>>t;
 	long offset=0;
 	while (fin.read((char *)&s,sizeof(s)))
@@ -317,10 +296,10 @@ void ADDITION()
 	{
 		f.enterd();
 		file.write((char *)&f, sizeof(f));
-		cout<<"\n\t Want to add data for more classes  ";
+		cout<<"\n\t Want to add data for more classes  \n";
 		cin>>rep;
 	}while(rep=='y'||rep=='Y');
-	cout<<"\n Data has been added on the file ";
+	cout<<"\n Data has been added on the file \n";
 	file.close();
 }
 
@@ -345,7 +324,7 @@ void MODIFICATION()
 		offset+=sizeof(f);
 	}
 	fin.close();
-	cout<<"\n\n\t Modified data   :   ";
+	cout<<"\n\n\t Modified data   :  \n";
 	f.displayd();
 	getch();
 }
@@ -370,7 +349,7 @@ void DELETE()
 	fin.close();
 	fout.close();
 	cout<<"\n\n\t Data deleted " ;
-	cout<<"\n\t\7 Press any key to continue";
+	cout<<"\n\t\7 Press any key to continue\n";
 	remove("fee.dat");
 	rename("temp.dat","fee.dat");
 	}
@@ -384,7 +363,7 @@ void Fee_collect()
 	char section;
 	cout<<"\n\n\t Enter the Admission no           : ";
 	cin>>anum;
-	cout<<"\n\n\t Enter The Class Of The Student    :";
+	cout<<"\n\n\t Enter The Class Of The Student    : ";
 	cin>>clas;
 	cout<<"\n\n\t Enter the Section Of The Student    : ";
 	cin>>section;
@@ -445,11 +424,11 @@ void Fee_collect()
 	{
 		int fine;
 		char rep;
-		cout<<"\n\n\t Is There A Fine ?? \n";
+		cout<<"\n\n\t Is There A Fine ?? : ";
 		cin>>rep;
 		if(rep=='y'||rep=='Y')
 		{
-			cout<<"\n\n\t Enter the fine\n";
+			cout<<"\n\n\t Enter the fine : ";
 			cin>>fine;
 		}
 		sf.upfee();
@@ -476,9 +455,9 @@ void DEFAULTER_LIST()
 	// clrscr();
 	int clas,anum,t;
 	char section;
-	cout<<"\n\n\t Enter The Class of the Student     :  \n";
+	cout<<"\n\n\t Enter The Class of the Student     :  ";
 	cin>>clas;
-	cout<<"\n\n\t Enter the section of the student   :  \n";
+	cout<<"\n\n\t Enter the section of the student   :  ";
 	cin>>section;
 	section=toupper(section);
 	fstream file,file3;
